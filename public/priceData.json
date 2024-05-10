@@ -1,0 +1,470 @@
+[
+  {
+    "Product": "Etherium",
+    "date": "2024-05-04",
+    "lowPrice": 89,
+    "avgPrice": 98,
+    "highPrice": 199,
+    "base": 23,
+    "priority": 333
+  },
+  {
+    "Product": "Etherium",
+    "date": "2024-04-23",
+    "lowPrice": 23,
+    "avgPrice": 43,
+    "highPrice": 149,
+    "base": 13,
+    "priority": 433
+  },
+  {
+    "Product": "Etherium",
+    "date": "2024-04-11",
+    "lowPrice": 33,
+    "avgPrice": 93,
+    "highPrice": 139,
+    "base": 3,
+    "priority": 733
+  },
+  {
+    "Product": "Etherium",
+    "date": "2024-04-04",
+    "lowPrice": 44,
+    "avgPrice": 48,
+    "highPrice": 149,
+    "base": 5,
+    "priority": 633
+  },
+  {
+    "Product": "Etherium",
+    "date": "2024-03-24",
+    "lowPrice": 39,
+    "avgPrice": 38,
+    "highPrice": 329,
+    "base": 7,
+    "priority": 533
+  },
+  {
+    "Product": "Etherium",
+    "date": "2024-03-12",
+    "lowPrice": 39,
+    "avgPrice": 98,
+    "highPrice": 99,
+    "base": 9,
+    "priority": 433
+  },
+  {
+    "Product": "Etherium",
+    "date": "2024-03-01",
+    "lowPrice": 19,
+    "avgPrice": 28,
+    "highPrice": 99,
+    "base": 7,
+    "priority": 333
+  },
+  {
+    "Product": "Etherium",
+    "date": "2024-02-24",
+    "lowPrice": 9,
+    "avgPrice": 8,
+    "highPrice": 19,
+    "base": 4,
+    "priority": 433
+  },
+  {
+    "Product": "Etherium",
+    "date": "2024-02-14",
+    "lowPrice": 189,
+    "avgPrice": 198,
+    "highPrice": 299,
+    "base": 5,
+    "priority": 733
+  },
+  {
+    "Product": "Etherium",
+    "date": "2024-02-04",
+    "lowPrice": 8,
+    "avgPrice": 11,
+    "highPrice": 19,
+    "base": 3,
+    "priority": 533
+  },
+  {
+    "Product": "Etherium",
+    "date": "2024-01-24",
+    "lowPrice": 59,
+    "avgPrice": 38,
+    "highPrice": 149,
+    "base": 1,
+    "priority": 633
+  },
+  {
+    "Product": "Etherium",
+    "date": "2024-01-14",
+    "lowPrice": 89,
+    "avgPrice": 98,
+    "highPrice": 199,
+    "base": 4,
+    "priority": 433
+  },
+  {
+    "Product": "Etherium",
+    "date": "2024-01-04",
+    "lowPrice": 89,
+    "avgPrice": 98,
+    "highPrice": 19,
+    "base": 5,
+    "priority": 533
+  },
+  {
+    "Product": "Binance Smart",
+    "date": "2024-05-04",
+    "lowPrice": 89,
+    "avgPrice": 98,
+    "highPrice": 199,
+    "base": 23,
+    "priority": 333
+  },
+  {
+    "Product": "Binance Smart",
+    "date": "2024-04-23",
+    "lowPrice": 23,
+    "avgPrice": 43,
+    "highPrice": 149,
+    "base": 13,
+    "priority": 433
+  },
+  {
+    "Product": "Binance Smart",
+    "date": "2024-04-11",
+    "lowPrice": 33,
+    "avgPrice": 93,
+    "highPrice": 139,
+    "base": 3,
+    "priority": 733
+  },
+  {
+    "Product": "Binance Smart",
+    "date": "2024-04-04",
+    "lowPrice": 44,
+    "avgPrice": 48,
+    "highPrice": 149,
+    "base": 5,
+    "priority": 633
+  },
+  {
+    "Product": "Binance Smart",
+    "date": "2024-03-24",
+    "lowPrice": 39,
+    "avgPrice": 38,
+    "highPrice": 329,
+    "base": 7,
+    "priority": 533
+  },
+  {
+    "Product": "Binance Smart",
+    "date": "2024-03-12",
+    "lowPrice": 39,
+    "avgPrice": 98,
+    "highPrice": 99,
+    "base": 9,
+    "priority": 433
+  },
+  {
+    "Product": "Binance Smart",
+    "date": "2024-03-01",
+    "lowPrice": 19,
+    "avgPrice": 28,
+    "highPrice": 99,
+    "base": 7,
+    "priority": 333
+  },
+  {
+    "Product": "Binance Smart",
+    "date": "2024-02-24",
+    "lowPrice": 9,
+    "avgPrice": 8,
+    "highPrice": 19,
+    "base": 4,
+    "priority": 433
+  },
+  {
+    "Product": "Binance Smart",
+    "date": "2024-02-14",
+    "lowPrice": 189,
+    "avgPrice": 198,
+    "highPrice": 299,
+    "base": 5,
+    "priority": 733
+  },
+  {
+    "Product": "Binance Smart",
+    "date": "2024-02-04",
+    "lowPrice": 8,
+    "avgPrice": 11,
+    "highPrice": 19,
+    "base": 3,
+    "priority": 533
+  },
+  {
+    "Product": "Binance Smart",
+    "date": "2024-01-24",
+    "lowPrice": 59,
+    "avgPrice": 38,
+    "highPrice": 149,
+    "base": 1,
+    "priority": 633
+  },
+  {
+    "Product": "Binance Smart",
+    "date": "2024-01-14",
+    "lowPrice": 89,
+    "avgPrice": 98,
+    "highPrice": 199,
+    "base": 4,
+    "priority": 433
+  },
+  {
+    "Product": "Binance Smart",
+    "date": "2024-01-04",
+    "lowPrice": 89,
+    "avgPrice": 98,
+    "highPrice": 19,
+    "base": 5,
+    "priority": 533
+  },
+  {
+    "Product": "Chain",
+    "date": "2024-05-04",
+    "lowPrice": 89,
+    "avgPrice": 98,
+    "highPrice": 199,
+    "base": 23,
+    "priority": 333
+  },
+  {
+    "Product": "Chain",
+    "date": "2024-04-23",
+    "lowPrice": 23,
+    "avgPrice": 43,
+    "highPrice": 149,
+    "base": 13,
+    "priority": 433
+  },
+  {
+    "Product": "Chain",
+    "date": "2024-04-11",
+    "lowPrice": 33,
+    "avgPrice": 93,
+    "highPrice": 139,
+    "base": 3,
+    "priority": 733
+  },
+  {
+    "Product": "Chain",
+    "date": "2024-04-04",
+    "lowPrice": 44,
+    "avgPrice": 48,
+    "highPrice": 149,
+    "base": 5,
+    "priority": 633
+  },
+  {
+    "Product": "Chain",
+    "date": "2024-03-24",
+    "lowPrice": 39,
+    "avgPrice": 38,
+    "highPrice": 329,
+    "base": 7,
+    "priority": 533
+  },
+  {
+    "Product": "Chain",
+    "date": "2024-03-12",
+    "lowPrice": 39,
+    "avgPrice": 98,
+    "highPrice": 99,
+    "base": 9,
+    "priority": 433
+  },
+  {
+    "Product": "Chain",
+    "date": "2024-03-01",
+    "lowPrice": 19,
+    "avgPrice": 28,
+    "highPrice": 99,
+    "base": 7,
+    "priority": 333
+  },
+  {
+    "Product": "Chain",
+    "date": "2024-02-24",
+    "lowPrice": 9,
+    "avgPrice": 8,
+    "highPrice": 19,
+    "base": 4,
+    "priority": 433
+  },
+  {
+    "Product": "Chain",
+    "date": "2024-02-14",
+    "lowPrice": 189,
+    "avgPrice": 198,
+    "highPrice": 299,
+    "base": 5,
+    "priority": 733
+  },
+  {
+    "Product": "Chain",
+    "date": "2024-02-04",
+    "lowPrice": 8,
+    "avgPrice": 11,
+    "highPrice": 19,
+    "base": 3,
+    "priority": 533
+  },
+  {
+    "Product": "Chain",
+    "date": "2024-01-24",
+    "lowPrice": 59,
+    "avgPrice": 38,
+    "highPrice": 149,
+    "base": 1,
+    "priority": 633
+  },
+  {
+    "Product": "Chain",
+    "date": "2024-01-14",
+    "lowPrice": 89,
+    "avgPrice": 98,
+    "highPrice": 199,
+    "base": 4,
+    "priority": 433
+  },
+  {
+    "Product": "Chain",
+    "date": "2024-01-04",
+    "lowPrice": 89,
+    "avgPrice": 98,
+    "highPrice": 19,
+    "base": 5,
+    "priority": 533
+  },
+  {
+    "Product": "Polygon",
+    "date": "2024-05-04",
+    "lowPrice": 89,
+    "avgPrice": 98,
+    "highPrice": 199,
+    "base": 23,
+    "priority": 333
+  },
+  {
+    "Product": "Polygon",
+    "date": "2024-04-23",
+    "lowPrice": 23,
+    "avgPrice": 43,
+    "highPrice": 149,
+    "base": 13,
+    "priority": 433
+  },
+  {
+    "Product": "Polygon",
+    "date": "2024-04-11",
+    "lowPrice": 33,
+    "avgPrice": 93,
+    "highPrice": 139,
+    "base": 3,
+    "priority": 733
+  },
+  {
+    "Product": "Polygon",
+    "date": "2024-04-04",
+    "lowPrice": 44,
+    "avgPrice": 48,
+    "highPrice": 149,
+    "base": 5,
+    "priority": 633
+  },
+  {
+    "Product": "Polygon",
+    "date": "2024-03-24",
+    "lowPrice": 39,
+    "avgPrice": 38,
+    "highPrice": 329,
+    "base": 7,
+    "priority": 533
+  },
+  {
+    "Product": "Polygon",
+    "date": "2024-03-12",
+    "lowPrice": 39,
+    "avgPrice": 98,
+    "highPrice": 99,
+    "base": 9,
+    "priority": 433
+  },
+  {
+    "Product": "Polygon",
+    "date": "2024-03-01",
+    "lowPrice": 19,
+    "avgPrice": 28,
+    "highPrice": 99,
+    "base": 7,
+    "priority": 333
+  },
+  {
+    "Product": "Polygon",
+    "date": "2024-02-24",
+    "lowPrice": 9,
+    "avgPrice": 8,
+    "highPrice": 19,
+    "base": 4,
+    "priority": 433
+  },
+  {
+    "Product": "Polygon",
+    "date": "2024-02-14",
+    "lowPrice": 189,
+    "avgPrice": 198,
+    "highPrice": 299,
+    "base": 5,
+    "priority": 733
+  },
+  {
+    "Product": "Polygon",
+    "date": "2024-02-04",
+    "lowPrice": 8,
+    "avgPrice": 11,
+    "highPrice": 19,
+    "base": 3,
+    "priority": 533
+  },
+  {
+    "Product": "Polygon",
+    "date": "2024-01-24",
+    "lowPrice": 59,
+    "avgPrice": 38,
+    "highPrice": 149,
+    "base": 1,
+    "priority": 633
+  },
+  {
+    "Product": "Polygon",
+    "date": "2024-01-14",
+    "lowPrice": 89,
+    "avgPrice": 98,
+    "highPrice": 199,
+    "base": 4,
+    "priority": 433
+  },
+  {
+    "Product": "Polygon",
+    "date": "2024-01-04",
+    "lowPrice": 89,
+    "avgPrice": 98,
+    "highPrice": 19,
+    "base": 5,
+    "priority": 533
+  }
+]
