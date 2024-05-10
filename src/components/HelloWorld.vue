@@ -2,6 +2,7 @@
 import { Network, useGasChartStore } from '@/stores/chart';
 import { storeToRefs } from 'pinia';
 import CustomToggler from './CustomToggler.vue';
+import ApexChart from 'vue3-apexcharts';
 
 defineProps<{
   msg: string;
@@ -40,7 +41,21 @@ function handleTimeFrameChange(tf: number) {
         :selectedItem="selectedTimeFrame"
       />
     </div>
-    <div class="centerContainer">chart goes here</div>
+    <div class="centerContainer">
+      chart goes here
+      <ApexChart
+        type="line"
+        :options="{
+          chart: {
+            height: 100
+          },
+          noData: {
+            text: 'No data as expected'
+          }
+        }"
+        :series="[{ data: [] }]"
+      />
+    </div>
     <h3>
       You’ve successfully created a project with
       <a href="https://vitejs.dev/" target="_blank" rel="noopener">Vite</a> +
