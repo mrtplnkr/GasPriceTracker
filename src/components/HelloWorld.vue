@@ -1,21 +1,25 @@
 <script async setup lang="ts">
 import CustomToggler from './CustomToggler.vue';
 import ApexChart from 'vue3-apexcharts';
-import { Network, useGasChartStore, type Serie } from '@/stores/chart';
+import { Network, type Serie } from '@/stores/chart';
 import { storeToRefs } from 'pinia';
 import { getMonths } from '@/stores/helpers';
 import { onMounted, ref, type Ref } from 'vue';
+import { useGasFilterStore, useGasChartStore } from '@/stores';
 
 defineProps<{
   msg: string;
 }>();
 
-const store = useGasChartStore();
+const chartStore = useGasChartStore();
 
-const { toggleNetwork, toggleTimeFrame, networkOptions, timeFrameOptions, fetchData, filterData } =
-  store;
+const filterStore = useGasFilterStore();
 
-const { selectedNetwork, selectedTimeFrame } = storeToRefs(store);
+const { fetchData, filterData } = chartStore;
+
+const { toggleNetwork, toggleTimeFrame, networkOptions, timeFrameOptions } = filterStore;
+
+const { selectedNetwork, selectedTimeFrame } = storeToRefs(filterStore);
 
 const chartSeries: Ref<Serie[]> = ref([]);
 
@@ -26,11 +30,11 @@ onMounted(async () => {
 
 function handleNetworkChange(network: Network) {
   toggleNetwork(network);
-  chartSeries.value = filterData();
+  chartSeries.value = filterData(selectedNetwork.value, selectedTimeFrame.value);
 }
 function handleTimeFrameChange(tf: number) {
   toggleTimeFrame(tf);
-  chartSeries.value = filterData();
+  chartSeries.value = filterData(selectedNetwork.value, selectedTimeFrame.value);
 }
 </script>
 
