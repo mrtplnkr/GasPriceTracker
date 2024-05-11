@@ -1,5 +1,6 @@
 import { ref, computed, reactive, type Ref } from 'vue';
 import { defineStore } from 'pinia';
+import { dateMinusDays } from './helpers';
 
 export enum Network {
   Ethereum = 'Ethereum',
@@ -25,6 +26,13 @@ export const useGasChartStore = defineStore('chartStore', () => {
   const selectedTimeFrame: Ref<number> = ref(0);
   const networkOptions: string[] = reactive(Object.values(Network));
   const selectedNetwork: Ref<string> = ref(Network.Ethereum);
+  const chartSeries: Ref<[{ name: string; data: Date[] }]> = ref([
+    {
+      name: 'series-1',
+      data: [1, 4, 3, 5, 4, 3, 2, 4]
+    }
+  ]);
+  console.log('data', chartSeries);
 
   const gasPrices: GasPrice[] = [];
   const filters = ref<Filters>({
@@ -57,16 +65,7 @@ export const useGasChartStore = defineStore('chartStore', () => {
     selectedTimeFrame,
     networkOptions,
     toggleNetwork,
-    selectedNetwork
+    selectedNetwork,
+    chartSeries
   };
 });
-
-export async function fetchGasPrices() {
-  try {
-    const response = await fetch('/priceData.json');
-    const result = await response.json();
-    return result;
-  } catch (error) {
-    console.error(error);
-  }
-}

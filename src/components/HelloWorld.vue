@@ -1,8 +1,9 @@
 <script async setup lang="ts">
-import { Network, useGasChartStore } from '@/stores/chart';
-import { storeToRefs } from 'pinia';
 import CustomToggler from './CustomToggler.vue';
 import ApexChart from 'vue3-apexcharts';
+import { Network, useGasChartStore } from '@/stores/chart';
+import { storeToRefs } from 'pinia';
+import { dateMinusDays, getMonths } from '@/stores/helpers';
 
 defineProps<{
   msg: string;
@@ -10,18 +11,17 @@ defineProps<{
 
 const store = useGasChartStore();
 
-const { toggleNetwork, toggleTimeFrame, networkOptions, timeFrameOptions } = store;
+const { toggleNetwork, toggleTimeFrame, networkOptions, timeFrameOptions, chartSeries } = store;
 
 const { selectedNetwork, selectedTimeFrame } = storeToRefs(store);
-const now = new Date().getTime();
-// console.log('d12', networkOptions, timeFrameOptions, store.toggleNetwork)
+
 function handleNetworkChange(network: Network) {
   toggleNetwork(network);
   console.log('received', network, selectedNetwork.value, store.selectedNetwork);
 }
 function handleTimeFrameChange(tf: number) {
   toggleTimeFrame(tf);
-  console.log('filter by number from current date', new Date(now - tf * 24 * 60 * 60 * 1000));
+  console.log('filter by number from current date', dateMinusDays(tf));
 }
 </script>
 
@@ -42,18 +42,20 @@ function handleTimeFrameChange(tf: number) {
       />
     </div>
     <div class="centerContainer">
-      chart goes here
       <ApexChart
         type="line"
         :options="{
+          xaxis: {
+            categories: getMonths(6)
+          },
           chart: {
-            height: 100
+            height: 300
           },
           noData: {
             text: 'No data as expected'
           }
         }"
-        :series="[{ data: [] }]"
+        :series="chartSeries"
       />
     </div>
     <h3>
