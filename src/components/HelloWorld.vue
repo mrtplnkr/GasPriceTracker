@@ -1,9 +1,10 @@
 <script async setup lang="ts">
 import CustomToggler from './CustomToggler.vue';
 import ApexChart from 'vue3-apexcharts';
-import { Network, useGasChartStore } from '@/stores/chart';
+import { Network, useGasChartStore, type Serie } from '@/stores/chart';
 import { storeToRefs } from 'pinia';
-import { dateMinusDays, getMonths } from '@/stores/helpers';
+import { getMonths } from '@/stores/helpers';
+import { onMounted, ref, type Ref } from 'vue';
 
 defineProps<{
   msg: string;
@@ -11,17 +12,22 @@ defineProps<{
 
 const store = useGasChartStore();
 
-const { toggleNetwork, toggleTimeFrame, networkOptions, timeFrameOptions, chartSeries } = store;
+const { toggleNetwork, toggleTimeFrame, networkOptions, timeFrameOptions, fetchData } = store;
 
 const { selectedNetwork, selectedTimeFrame } = storeToRefs(store);
 
+const chartSeries: Ref<Serie[]> = ref([]);
+
+onMounted(async () => {
+  const fData = await fetchData();
+  chartSeries.value = fData;
+});
+
 function handleNetworkChange(network: Network) {
   toggleNetwork(network);
-  console.log('received', network, selectedNetwork.value, store.selectedNetwork);
 }
 function handleTimeFrameChange(tf: number) {
   toggleTimeFrame(tf);
-  console.log('filter by number from current date', dateMinusDays(tf));
 }
 </script>
 
@@ -55,7 +61,7 @@ function handleTimeFrameChange(tf: number) {
             text: 'No data as expected'
           }
         }"
-        :series="chartSeries"
+        :series="chartSeries.filter((x) => x.name.startsWith(selectedNetwork))"
       />
     </div>
     <h3>

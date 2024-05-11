@@ -1,12 +1,17 @@
-import { ref, computed, reactive, type Ref } from 'vue';
+import { ref, reactive, type Ref } from 'vue';
 import { defineStore } from 'pinia';
-import { dateMinusDays } from './helpers';
+import { fetchGasPrices } from '@/api/chart';
 
 export enum Network {
-  Ethereum = 'Ethereum',
+  Etherium = 'Etherium',
   Binance = 'Binance',
   Chain = 'Chain',
   Polygon = 'Polygon'
+}
+
+export interface Serie {
+  name: string;
+  data: number[];
 }
 
 interface GasPrice {
@@ -14,6 +19,7 @@ interface GasPrice {
   date: Date;
   lowPrice: number;
   avgPrice: number;
+  highPrice: number;
 }
 
 interface Filters {
@@ -25,29 +31,12 @@ export const useGasChartStore = defineStore('chartStore', () => {
   const timeFrameOptions: number[] = reactive([7, 30, 90]);
   const selectedTimeFrame: Ref<number> = ref(0);
   const networkOptions: string[] = reactive(Object.values(Network));
-  const selectedNetwork: Ref<string> = ref(Network.Ethereum);
-  const chartSeries: Ref<[{ name: string; data: Date[] }]> = ref([
-    {
-      name: 'series-1',
-      data: [1, 4, 3, 5, 4, 3, 2, 4]
-    }
-  ]);
-  console.log('data', chartSeries);
+  const selectedNetwork: Ref<string> = ref(Network.Etherium);
 
-  const gasPrices: GasPrice[] = [];
   const filters = ref<Filters>({
     timeFrame: undefined,
-    gasNetwork: Network.Ethereum
+    gasNetwork: Network.Etherium
   });
-  const filteredGasPrices = computed(() =>
-    gasPrices
-      .filter(
-        (x: any) =>
-          filters.value.gasNetwork === x.gasNetwork &&
-          (!filters.value.timeFrame || x.date >= new Date().getDate() - filters.value.timeFrame)
-      )
-      .sort((a: GasPrice, b: GasPrice) => b.date.getDate() - a.date.getDate())
-  );
 
   const toggleNetwork = (selection: Network) => {
     selectedNetwork.value = networkOptions.find((item) => item === selection)!;
@@ -57,15 +46,36 @@ export const useGasChartStore = defineStore('chartStore', () => {
     selectedTimeFrame.value = selection;
   };
 
+  async function fetchData() {
+    const groupedData: Serie[] = [];
+    const data = await fetchGasPrices();
+    const distinctProducts = new Set(data.map((x: GasPrice) => x.Product));
+    distinctProducts.forEach((product: string) => {
+      groupedData.push({
+        name: `${product} low`,
+        data: data.filter((x: GasPrice) => x.Product === product).map((x: GasPrice) => x.lowPrice)
+      });
+      groupedData.push({
+        name: `${product} avg`,
+        data: data.filter((x: GasPrice) => x.Product === product).map((x: GasPrice) => x.avgPrice)
+      });
+      groupedData.push({
+        name: `${product} high`,
+        data: data.filter((x: GasPrice) => x.Product === product).map((x: GasPrice) => x.highPrice)
+      });
+    });
+    return groupedData;
+  }
+
   return {
+    fetchData,
     filters,
-    filteredGasPrices,
     timeFrameOptions,
     toggleTimeFrame,
     selectedTimeFrame,
     networkOptions,
     toggleNetwork,
-    selectedNetwork,
-    chartSeries
+    selectedNetwork
+    // chartSeries
   };
 });
