@@ -12,7 +12,8 @@ defineProps<{
 
 const store = useGasChartStore();
 
-const { toggleNetwork, toggleTimeFrame, networkOptions, timeFrameOptions, fetchData } = store;
+const { toggleNetwork, toggleTimeFrame, networkOptions, timeFrameOptions, fetchData, filterData } =
+  store;
 
 const { selectedNetwork, selectedTimeFrame } = storeToRefs(store);
 
@@ -25,9 +26,11 @@ onMounted(async () => {
 
 function handleNetworkChange(network: Network) {
   toggleNetwork(network);
+  chartSeries.value = filterData();
 }
 function handleTimeFrameChange(tf: number) {
   toggleTimeFrame(tf);
+  chartSeries.value = filterData();
 }
 </script>
 
@@ -52,7 +55,13 @@ function handleTimeFrameChange(tf: number) {
         type="line"
         :options="{
           xaxis: {
-            categories: getMonths(6)
+            categories: getMonths(12)
+          },
+          tooltip: {
+            theme: 'dark'
+            // custom() {
+            //   return '<div>asd</div>';
+            // }
           },
           chart: {
             height: 300
@@ -61,7 +70,7 @@ function handleTimeFrameChange(tf: number) {
             text: 'No data as expected'
           }
         }"
-        :series="chartSeries.filter((x) => x.name.startsWith(selectedNetwork))"
+        :series="chartSeries"
       />
     </div>
     <h3>

@@ -1,6 +1,7 @@
 import { ref, reactive, type Ref } from 'vue';
 import { defineStore } from 'pinia';
 import { fetchGasPrices } from '@/api/chart';
+import { dateMinusDays } from './helpers';
 
 export enum Network {
   Etherium = 'Etherium',
@@ -46,25 +47,39 @@ export const useGasChartStore = defineStore('chartStore', () => {
     selectedTimeFrame.value = selection;
   };
 
-  async function fetchData() {
+  let allData: GasPrice[] = [];
+
+  function filterData() {
     const groupedData: Serie[] = [];
-    const data = await fetchGasPrices();
-    const distinctProducts = new Set(data.map((x: GasPrice) => x.Product));
+    const filteredData = allData.filter(
+      (x: GasPrice) =>
+        x.Product.startsWith(selectedNetwork.value) &&
+        (selectedTimeFrame.value === 0 || dateMinusDays(selectedTimeFrame.value) < new Date(x.date))
+    );
+
+    const distinctProducts = new Set(filteredData.map((x: GasPrice) => x.Product));
+
     distinctProducts.forEach((product: string) => {
       groupedData.push({
         name: `${product} low`,
-        data: data.filter((x: GasPrice) => x.Product === product).map((x: GasPrice) => x.lowPrice)
+        data: filteredData.map((x: GasPrice) => x.lowPrice)
       });
       groupedData.push({
         name: `${product} avg`,
-        data: data.filter((x: GasPrice) => x.Product === product).map((x: GasPrice) => x.avgPrice)
+        data: filteredData.map((x: GasPrice) => x.avgPrice)
       });
       groupedData.push({
         name: `${product} high`,
-        data: data.filter((x: GasPrice) => x.Product === product).map((x: GasPrice) => x.highPrice)
+        data: filteredData.map((x: GasPrice) => x.highPrice)
       });
     });
+
     return groupedData;
+  }
+
+  async function fetchData() {
+    allData = await fetchGasPrices();
+    return filterData();
   }
 
   return {
@@ -75,7 +90,7 @@ export const useGasChartStore = defineStore('chartStore', () => {
     selectedTimeFrame,
     networkOptions,
     toggleNetwork,
-    selectedNetwork
-    // chartSeries
+    selectedNetwork,
+    filterData
   };
 });
