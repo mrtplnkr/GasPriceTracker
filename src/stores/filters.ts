@@ -15,7 +15,7 @@ export interface Serie {
 
 export const useGasFilterStore = defineStore('filterStore', () => {
   const timeFrameOptions: number[] = reactive([7, 30, 90]);
-  const selectedTimeFrame: Ref<number> = ref(0);
+  const selectedTimeFrame: Ref<number> = ref(90);
   const networkOptions: string[] = reactive(Object.values(Network));
   const selectedNetwork: Ref<string> = ref(Network.Etherium);
 

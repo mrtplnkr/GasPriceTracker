@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia';
 import { fetchGasPrices } from '@/api/chart';
-import { dateMinusDays } from './helpers';
+import { dateMinusDays, formatDates } from './helpers';
+import { ref, type Ref } from 'vue';
 
 export enum Network {
   Etherium = 'Etherium',
@@ -16,7 +17,7 @@ export interface Serie {
 
 interface GasPrice {
   Product: string;
-  date: Date;
+  date: string;
   lowPrice: number;
   avgPrice: number;
   highPrice: number;
@@ -24,14 +25,21 @@ interface GasPrice {
 
 export const useGasChartStore = defineStore('chartStore', () => {
   let allData: GasPrice[] = [];
+  const dateRange: Ref<string[]> = ref([]);
 
-  function filterData(selectedNetwork: string, selectedTimeFrame: number) {
+  function filterData(selectedNetwork: string = Network.Etherium, selectedTimeFrame: number = 90) {
     const groupedData: Serie[] = [];
-    const filteredData = allData.filter(
-      (x: GasPrice) =>
-        x.Product.startsWith(selectedNetwork) &&
-        (selectedTimeFrame === 0 || dateMinusDays(selectedTimeFrame) < new Date(x.date))
-    );
+    const filteredData = allData
+      .filter(
+        (x: GasPrice) =>
+          x.Product.startsWith(selectedNetwork) &&
+          (selectedTimeFrame === 0 || dateMinusDays(selectedTimeFrame) < new Date(x.date))
+      )
+      .sort((a: GasPrice, b: GasPrice) => {
+        return new Date(b.date) > new Date(a.date) ? 1 : -1;
+      });
+
+    dateRange.value = formatDates(filteredData.map((x) => x.date));
 
     const distinctProducts = new Set(filteredData.map((x: GasPrice) => x.Product));
 
@@ -49,18 +57,18 @@ export const useGasChartStore = defineStore('chartStore', () => {
         data: filteredData.map((x: GasPrice) => x.highPrice)
       });
     });
-    console.log('filtered', groupedData);
 
     return groupedData;
   }
 
   async function fetchData() {
     allData = await fetchGasPrices();
-    return filterData(Network.Etherium, 0);
+    return filterData();
   }
 
   return {
     fetchData,
-    filterData
+    filterData,
+    dateRange
   };
 });

@@ -3,7 +3,6 @@ import CustomToggler from './CustomToggler.vue';
 import ApexChart from 'vue3-apexcharts';
 import { Network, type Serie } from '@/stores/chart';
 import { storeToRefs } from 'pinia';
-import { getMonths } from '@/stores/helpers';
 import { onMounted, ref, type Ref } from 'vue';
 import { useGasFilterStore, useGasChartStore } from '@/stores';
 
@@ -59,7 +58,7 @@ function handleTimeFrameChange(tf: number) {
         type="line"
         :options="{
           xaxis: {
-            categories: getMonths(12)
+            categories: chartStore.dateRange
           },
           tooltip: {
             theme: 'dark'

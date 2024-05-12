@@ -23,10 +23,11 @@ export function dateMinusMonths(nMonth: number) {
   return shortMonths[new Date(monthIndex).getMonth()];
 }
 
-export function getMonths(nMonths: number) {
-  const arr: string[] = [];
-  for (let index = 0; index < nMonths; index++) {
-    arr.push(dateMinusMonths(index));
-  }
-  return arr;
+export function formatDates(dates: string[]) {
+  const months: string[] = [];
+  dates.forEach((d: string) => {
+    const date: Date = new Date(d);
+    months.push(`${shortMonths[date.getMonth()]} ${date.getDate()}`);
+  });
+  return months;
 }

@@ -1,8 +1,17 @@
 [
   {
     "Product": "Etherium",
+    "date": "2024-05-11",
+    "lowPrice": 11,
+    "avgPrice": 98,
+    "highPrice": 199,
+    "base": 23,
+    "priority": 333
+  },
+  {
+    "Product": "Etherium",
     "date": "2024-05-06",
-    "lowPrice": 19,
+    "lowPrice": 6,
     "avgPrice": 98,
     "highPrice": 199,
     "base": 23,
@@ -11,7 +20,7 @@
   {
     "Product": "Etherium",
     "date": "2024-05-08",
-    "lowPrice": 9,
+    "lowPrice": 8,
     "avgPrice": 38,
     "highPrice": 99,
     "base": 23,
