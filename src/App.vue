@@ -9,12 +9,11 @@ import TheWelcome from './components/TheWelcome.vue';
 
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
-      <HelloChart />
     </div>
   </header>
 
   <main>
-    <TheWelcome />
+    <HelloChart />
   </main>
 </template>
 

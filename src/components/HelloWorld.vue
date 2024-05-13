@@ -1,6 +1,6 @@
 <script async setup lang="ts">
-import CustomToggler from './CustomToggler.vue';
-import HelloChart from './HelloChart.vue';
+import CustomToggler from './molecules/CustomToggler.vue';
+import HelloChart from './organisms/HelloChart.vue';
 import { Network, type Serie } from '@/stores/chart';
 import { storeToRefs } from 'pinia';
 import { onMounted, ref, type Ref } from 'vue';
@@ -40,7 +40,11 @@ function handleTimeFrameChange(tf: number) {
 <template>
   <div class="greetings">
     <h1 class="green">{{ msg }}</h1>
-
+    <h3>
+      You’ve successfully created a project with
+      <a href="https://vitejs.dev/" target="_blank" rel="noopener">Vite</a> +
+      <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue 3</a>.
+    </h3>
     <div class="spreadContainer">
       <CustomToggler
         :itemOptions="networkOptions"
@@ -56,11 +60,6 @@ function handleTimeFrameChange(tf: number) {
     <div class="centerContainer">
       <HelloChart :dateRange="chartStore.dateRange" :chartSeries="chartSeries" />
     </div>
-    <h3>
-      You’ve successfully created a project with
-      <a href="https://vitejs.dev/" target="_blank" rel="noopener">Vite</a> +
-      <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue 3</a>.
-    </h3>
   </div>
 </template>
 
