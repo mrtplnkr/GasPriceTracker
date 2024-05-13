@@ -1,5 +1,7 @@
 <script async setup lang="ts">
 import type { Serie } from '@/stores/chart';
+// eslint-disable-next-line
+// @ts-ignore
 import ApexChart from 'vue3-apexcharts';
 
 defineProps<{
@@ -45,21 +47,6 @@ h1 {
   font-weight: 500;
   font-size: 2.6rem;
   position: relative;
-}
-.listContainer {
-  margin: 5px;
-  border: 1px solid blue;
-  border-radius: 5px;
-  padding: 5px;
-  list-style: none;
-  display: flex;
-}
-.listContainer li {
-  margin: 2px;
-  padding: 2px;
-  border: 1px solid green;
-  border-radius: 5px;
-  cursor: pointer;
 }
 
 h3 {

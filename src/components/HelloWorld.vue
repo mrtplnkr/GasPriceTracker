@@ -45,52 +45,30 @@ function handleTimeFrameChange(tf: number) {
       <a href="https://vitejs.dev/" target="_blank" rel="noopener">Vite</a> +
       <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue 3</a>.
     </h3>
-    <div class="spreadContainer">
+    <div class="flex justify-around flex-col sm:flex-row items-end">
       <CustomToggler
         :itemOptions="networkOptions"
         @handleChange="handleNetworkChange"
         :selectedItem="selectedNetwork"
       />
       <CustomToggler
+        class="sm:justify-end"
         :itemOptions="timeFrameOptions"
         @handleChange="handleTimeFrameChange"
         :selectedItem="selectedTimeFrame"
       />
     </div>
-    <div class="centerContainer">
+    <div class="justify-center">
       <HelloChart :dateRange="chartStore.dateRange" :chartSeries="chartSeries" />
     </div>
   </div>
 </template>
 
 <style scoped>
-.spreadContainer {
-  display: flex;
-  justify-content: space-around;
-}
-.centerContainer {
-  text-align: center;
-  margin: 10px 0;
-}
 h1 {
   font-weight: 500;
   font-size: 2.6rem;
   position: relative;
-}
-.listContainer {
-  margin: 5px;
-  border: 1px solid blue;
-  border-radius: 5px;
-  padding: 5px;
-  list-style: none;
-  display: flex;
-}
-.listContainer li {
-  margin: 2px;
-  padding: 2px;
-  border: 1px solid green;
-  border-radius: 5px;
-  cursor: pointer;
 }
 
 h3 {
