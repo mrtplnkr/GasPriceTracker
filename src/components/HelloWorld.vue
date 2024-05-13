@@ -1,6 +1,6 @@
 <script async setup lang="ts">
 import CustomToggler from './CustomToggler.vue';
-import ApexChart from 'vue3-apexcharts';
+import HelloChart from './HelloChart.vue';
 import { Network, type Serie } from '@/stores/chart';
 import { storeToRefs } from 'pinia';
 import { onMounted, ref, type Ref } from 'vue';
@@ -54,27 +54,7 @@ function handleTimeFrameChange(tf: number) {
       />
     </div>
     <div class="centerContainer">
-      <ApexChart
-        type="line"
-        :options="{
-          xaxis: {
-            categories: chartStore.dateRange
-          },
-          tooltip: {
-            theme: 'dark'
-            // custom() {
-            //   return '<div>asd</div>';
-            // }
-          },
-          chart: {
-            height: 300
-          },
-          noData: {
-            text: 'No data as expected'
-          }
-        }"
-        :series="chartSeries"
-      />
+      <HelloChart :dateRange="chartStore.dateRange" :chartSeries="chartSeries" />
     </div>
     <h3>
       You’ve successfully created a project with
