@@ -35,14 +35,6 @@ defineProps<{
 </template>
 
 <style scoped>
-.spreadContainer {
-  display: flex;
-  justify-content: space-around;
-}
-.centerContainer {
-  text-align: center;
-  margin: 10px 0;
-}
 h1 {
   font-weight: 500;
   font-size: 2.6rem;

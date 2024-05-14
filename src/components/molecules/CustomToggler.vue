@@ -11,34 +11,16 @@ function handleValueChange(val: StringOrNumber) {
 }
 </script>
 <template>
-  <ul class="listContainer">
+  <ul class="flex m-2">
     <li
+      class="p-1 m-1 border-2 rounded-md cursor-pointer"
       v-for="item in itemOptions"
       :key="item"
       @:click="handleValueChange(item)"
-      :class="{ active: selectedItem.toString() === item.toString() }"
+      :class="{ 'bg-blue-200': selectedItem.toString() === item.toString() }"
     >
       {{ item }}
     </li>
   </ul>
 </template>
-<style scoped>
-.listContainer {
-  margin: 5px;
-  border: 1px solid blue;
-  border-radius: 5px;
-  padding: 5px;
-  list-style: none;
-  display: flex;
-}
-.listContainer li {
-  margin: 2px;
-  padding: 2px;
-  border: 1px solid green;
-  border-radius: 5px;
-  cursor: pointer;
-}
-.active {
-  background: lightblue;
-}
-</style>
+<style scoped></style>
