@@ -19,9 +19,6 @@ defineProps<{
       },
       tooltip: {
         theme: 'dark'
-        // custom() {
-        //   return '<div>asd</div>';
-        // }
       },
       chart: {
         height: 300
